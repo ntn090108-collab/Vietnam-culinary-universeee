@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam Culinary Universe™</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d4af37;
+  --dark:#0b0b0b;
+  --light:#f5f5f5;
+  --red:#b11226;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--dark);
+  color:var(--light);
+  line-height:1.8;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-container{
+  max-width:1400px;
+  margin:auto;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:var(--gold);
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:32px;
+}
+nav ul li a{
+  text-decoration:none;
+  color:var(--light);
+  font-size:14px;
+  letter-spacing:1px;
+  position:relative;
+}
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  left:0; bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.3s;
+}
+nav ul li a:hover::after{width:100%}
+
+/* ===== HEADER ===== */
+header{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 60px 60px;
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  color:var(--gold);
+}
+header p{
+  max-width:900px;
+  margin:30px auto;
+  font-size:20px;
+}
+
+/* ===== COMMON ===== */
+section{padding:100px 10%}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  color:var(--gold);
+  margin-bottom:40px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+.card{
+  background:#141414;
+  border-radius:20px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+}
+.card h3{
+  color:var(--gold);
+  margin-bottom:20px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:300px;
+  margin:40px auto 0;
+  text-align:center;
+  padding:14px;
+  border-radius:6px;
+  background:#141414;
+  color:var(--gold);
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+.btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+/* ===== DNA BAR ===== */
+.dna-bar{
+  height:8px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+  margin:18px 0;
+}
+.dna-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+}
+
+/* ===== SLIDER ===== */
+.slider-container{
+  position:relative;
+  overflow:hidden;
+}
+.slider{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+.slider::-webkit-scrollbar{display:none}
+
+.slide{
+  min-width:320px;
+  background:#141414;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.4s;
+}
+.slide:hover{transform:translateY(-8px)}
+.slide img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:.4s;
+}
+.slide:hover img{transform:scale(1.1)}
+.slide p{
+  padding:15px;
+  text-align:center;
+}
+
+.nav-btn{
+  position:absolute;
+  top:40%;
+  background:rgba(0,0,0,.6);
+  color:var(--gold);
+  border:none;
+  font-size:26px;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:50%;
+}
+.nav-btn.left{left:-10px}
+.nav-btn.right{right:-10px}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:40px;
+}
+th,td{
+  padding:20px;
+  border:1px solid rgba(255,255,255,.15);
+}
+th{color:var(--gold)}
+
+/* ===== FOOTER ===== */
+footer{
+  padding:60px;
+  text-align:center;
+  background:#000;
+  opacity:.8;
+}
+.btn{
+  display:block;
+  width:300px;
+  margin:50px auto 0;
+  text-align:center;
+  padding:14px;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+.btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+.toc{
+  background:#141414;
+  padding:20px;
+  border-radius:6px;
+  margin-bottom:30px;
+}
+.toc h3{
+  margin-bottom:10px;
+}
+.toc ul{
+  padding-left:20px;
+}
+.toc a{
+  text-decoration:none;
+  color: #0066cc;
+}
+.toc a:hover{
+  text-decoration:underline;
+}
+h2{
+  margin-top:40px;
+  color:var(--gold);
+}
+h3{
+  margin-top:25px;
+  color:#444;
+}
+.anh-mon-an {
+  text-align: center;
+}
+
+/* ảnh */
+.anh-mon-an img {
+  max-width: 100%;
+  width: 400px;       /* chỉnh to nhỏ tại đây */
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* chú thích dưới ảnh */
+.anh-mon-an figcaption {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  font-style: italic;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">VCU™</div>
+    <ul>
+      <li><a href="baocao.html#home">TRANG CHỦ</a></li>
+      <li><a href="baocao.html#explore">KHÁM PHÁ</a></li>
+      <li><a href="baocao.html#regions">3 MIỀN</a></li>
+      <li><a href="baocao.html#gallery">HÌNH ẢNH</a></li>
+      <li><a href="baocao.html#compare">SO SÁNH</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- KHÁM PHÁ -->
+
+<section id="regions">
+<h2 class="section-title">Ẩm thực 3 miền</h2>
+<div class="grid">
+  <div class="card"><h3>MIỀN NAM</h3>
+    Ẩm thực phương Nam mang sắc thái hào sảng, đậm đà vị ngọt, hơi chua, đôi khi cay nhẹ và rất phong phú về nguyên liệu. Dấu ấn từ các nền văn hóa láng giềng như Trung Quốc, Campuchia, Thái Lan thể hiện rõ qua cách sử dụng đường, nước cốt dừa và các món mắm đa dạng như mắm cá sặc, mắm ba khía, mắm bò hóc…<br><br>
+    Miền Nam sử dụng nhiều nguyên liệu từ hải sản nước mặn và nước lợ như cua biển, tôm, cá, sò, ốc… với cách chế biến dân dã, đậm chất vùng đất khai hoang. Nơi đây còn nổi danh với các món ăn độc đáo mà ít nơi nào có: đuông dừa béo ngậy, chuột đồng khìa nước dừa, rắn hổ đất nấu cháo đậu xanh, cá lóc nướng trui hay vọp hấp mắm gừng… tất cả tạo nên dấu ấn mạnh mẽ về ẩm thực của một miền đất trù phú.<br><br>
+    Cùng Tổ 2 xuôi về phương Nam và trải nghiệm 10 món ẩm thực nức tiếng nơi đây.<br><br>
+
+<p style="color: khaki;">1. Cơm tấm</p>
+Cơm tấm là món ăn rất phổ biến ở miền Nam. Cơm nấu từ gạo tấm, khô hơn so với khẩu vị của người miền Bắc và miền Trung. Những miếng thịt sườn lớn, được tẩm ướp gia vị, nướng trên bếp than. Cùng với đó là phần bì, chả và trứng ốp la ăn kèm. Vào tới Sài Gòn, đi đến đâu bạn cũng sẽ thấy đầy rẫy quán cơm tấm, từ bình dân đến sang chảnh. Thưởng thức một lần rồi bạn chắc chắn sẽ nhớ mãi những hương vị thơm ngon và đậm đà này.<br><br>
+<!-- chèn ảnh cơm tấm -->
+
+<figure class="anh-mon-an">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Cơm_Tấm%2C_Da_Nang%2C_Vietnam.jpg/500px-Cơm_Tấm%2C_Da_Nang%2C_Vietnam.jpg" width="500">
+      <figcaption>Cơm tấm là một món ăn nổi tiếng và phổ biến ở miền Nam, đặc biệt là Sài Gòn. </figcaption>
+    </figure>
+<p style="color: khaki;">2. Bánh khọt Vũng Tàu</p>
+Bánh khọt Vũng Tàu có nguồn gốc từ bánh căn xuất phát từ vùng Bình Thuận, Ninh Thuận và Thanh Hóa. Ngoài bột gạo là nguyên liệu chính tạo nên độ giòn và thơm ngon của bánh khọt, không thể không nhắc đến phần nhân bánh đặc biệt được làm từ nhiều loại hải sản đánh bắt trực tiếp tại biển Vũng Tàu như: tôm, sò điệp hay mực.<br><br>
+Chưa dừng lại ở đó, hương vị đậm đà của bánh khọt Vũng Tàu còn nằm ở lớp mỡ hành béo ngậy, hoà quyện cùng vị mặn của ruốc rang khô, ăn kèm với các loại rau sống như: cải xanh, tía tô, diếp cá, rau thơm, xà lách, đu đủ thái sợi…<br><br>
+<!-- chèn ảnh bánh khọt-->
+
+
+<figure class="anh-mon-an">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/8b/2e/a0/very-simple-ingredients.jpg?w=1400&h=-1&s=1" width="500">
+      <figcaption>Là một trong những món ăn bạn nhất định không được bỏ lỡ, ắt hẳn thế nên các quán bánh khọt vũng tàu luôn tấp nập khung cảnh khách khứa ra vào.</figcaption>
+    </figure>
+
+
+<p style="color: khaki;">3. Bò tơ Tây Ninh</p>
+Bò tơ Tây Ninh từ lâu đã là đặc sản được nhiều người biết đến bởi hương vị thơm mềm, ngon ngọt tự nhiên cùng vô số cách biến tấu hấp dẫn. Với nguồn thịt bò tơ cực kỳ phong phú, người dân Tây Ninh đã sáng tạo nên rất nhiều món ngon lẩu bò tơ chua ngọt, bò tơ nướng y, bò nướng mọi… Đặc biệt, khi ăn món đặc sản Tây Ninh này với chén nước chấm đặc trưng và rau rừng thì bạn sẽ cảm nhận được một hương vị riêng đầy cuốn hút không nơi nào có được.<br><br>
+<!-- chèn ảnh bò tơ tây ninh -->
+
+<figure class="anh-mon-an">
+      <img src="https://sgtourism.vn/wp-content/uploads/2024/02/dac-san-bo-to-tay-ninh.jpg" width="500">
+      <figcaption>Bò tơ Tây Ninh là một món ăn không chỉ ngon miệng mà còn giàu dinh dưỡng.</figcaption>
+    </figure>
+
+<p style="color: khaki;">4. Hủ tiếu Sa Đéc</p>
+Hủ tiếu Sa Đéc được biết đến với sợi trắng mềm, nước súp thơm ngon đậm vị cùng sự kết hợp hài hòa giữa thịt, tim, gan, lòng heo cùng nhiều loại thực phẩm như tôm, thịt nạc băm, rau hẹ, xà lách, hành, chanh ớt,... Khi kết hợp với nước lèo nấu từ xương ống và gia vị truyền thống tạo nên món hủ tiếu thơm ngon hấp dẫn với hương vị khó mà chối từ được.<br><br>
+<!-- chèn ảnh hủ tiếu sa đét -->
+
+<figure class="anh-mon-an">
+      <img src="https://mia.vn/media/uploads/blog-du-lich/hu-tieu-sa-dec-01-1699025038.jpg" width="500">
+      <figcaption>Hủ tiếu Sa Đéc vị ngọt thanh bởi nước dùng được hầm từ xương trong nhiều giờ liền cùng công thức nêm nếm độc đáo. Ảnh: Cơm Tấm Ba Sơn .</figcaption>
+    </figure>
+<p style="color: khaki;">5. Bánh xèo miền Tây</p>
+Bánh xèo miền Tây là món ăn đã rất nổi tiếng của miền sông nước. Khác với bánh xèo miền Trung có kích thước khá nhỏ, bánh xèo miền Tây có kích thước lớn hơn rất nhiều và được đổ bằng chảo. Phần nhân bánh người miền Tây sử dụng các loại thịt như heo, vịt, tôm, tép... Khi ăn thường ăn với nhiều loại rau rừng và dùng rau để cuốn.<br><br>
+<!-- chèn ảnh bán xèo -->
+
+<figure class="anh-mon-an">
+      <img src="https://i1-giadinh.vnecdn.net/2023/09/19/Buoc-10-Thanh-pham-1-1-5225-1695107554.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=icszMH85w5_jQS7VvIcm3Q" width="500">
+      <figcaption>Bánh xèo là món ăn dân dã quen thuộc nhiều tỉnh miền Trung và miền Nam. </figcaption>
+    </figure>
+
+<p style="color: khaki;">6. Lẩu mắm</p>
+Lẩu mắm là đồ ăn Việt Nam đặc trưng của miền Tây Nam Bộ. Topping sẽ có cá, tôm, thịt và các loại rau như rau nhút, điên điển, bông súng… Điều đặc biệt của món ăn này là sử dụng mắm cá linh và mắm cá sặc nấu nước dùng. Vì thế nên hương vị món ăn rất độc đáo, nồng và thơm. Nếu lần đầu ăn thử có lẽ bạn sẽ cảm thấy hơi khó ăn một chút nhưng ăn vài lần sẽ ghiền luôn đấy nhé.<br><br>
+<!-- chèn ảnh lẩu mắm -->
+
+<figure class="anh-mon-an">
+      <img src="https://cooponline.vn/tin-tuc/wp-content/uploads/2025/10/Hinh-1-1.png" width="500">
+      <figcaption>Lẩu mắm đậm vị, đủ chất.</figcaption>
+    </figure>
+
+<p style="color: khaki;">7. Bún cá Châu Đốc</p>
+Bún cá Châu Đốc mang một màu vàng óng ánh từ nước dùng, những lát cá lóc được xào với nghệ tươi, bông điên điển cùng màu xanh mơn mởn của những loại rau sống ăn kèm. Tô bún cá Châu Đốc không chỉ có vẻ ngoài hấp dẫn mà còn có hương vị mà thử một lần là không ai có thể quên được.<br><br>
+<!-- chèn ảnh bún cá châu đốc -->
+<figure class="anh-mon-an">
+      <img src="https://static.vinwonders.com/production/2025/09/bun-ca-o-chau-doc.jpg" width="500">
+      <figcaption>Đặc trưng của món bún cá Châu Đốc là nước dùng thơm mùi ngải bún, mắm ruốc và nghệ tươi .</figcaption>
+    </figure>
+
+<p style="color: khaki;">8. Cá lóc nướng trui Cần Thơ</p>
+Sẽ là một thiếu sót lớn nếu hành trình khám phá ẩm thực miền Tây Nam Bộ bỏ qua món cá lóc nướng trui Cần Thơ ngon trứ danh. Cá lóc dùng nướng trui là loại cá lóc đồng thân chắc, thịt ngọt và dai tự nhiên, đem nướng trực tiếp trên rơm khô. Khi cá vừa chín tới, lớp vảy cháy xém bên ngoài được cạo bỏ, để lộ phần thịt trắng thơm phức bên trong. Sau đó món cá được rưới lên lớp mỡ hành béo ngậy, rắc thêm chút đậu phộng rang giã dập để hương thơm ngào ngạt lan tỏa đánh thức mọi giác quan. Từng miếng cá lóc nướng mang đậm hơi thở đồng quê, mộc mạc mà đậm đà, để lại dư vị sâu lắng khó quên trong lòng thực khách.<br><br>
+<!-- chèn ảnh cá lóc nướng trui -->
+
+<figure class="anh-mon-an">
+      <img src="https://mia.vn/media/uploads/blog-du-lich/kham-pha-am-thuc-mien-tay-dan-da-voi-ca-loc-nuong-trui-can-tho-01-1649181654.jpg" width="500">
+      <figcaption>Cá lóc nướng trui Cần Thơ là một trong những món ăn đặc sản cực ngon tại thành phố sông nước - Cần Thơ.</figcaption>
+    </figure>
+
+<p style="color: khaki;">9. Kẹo dừa</p>
+Bến Tre nổi danh là xứ dừa với rất nhiều món ăn được chế biến từ loại quả này, trong đó kẹo dừa là nổi tiếng nhất. Nguyên liệu của loại kẹo này là cơm dừa, đường và mạch nha. Thành phẩm thơm lừng mùi dừa, ngọt ngào, nồng nàn, càng nhai càng mềm. Ngoài kẹo dừa Bến Tre truyền thống còn có kẹo dừa đậu phộng, kẹo dừa sầu riêng… Lần đầu trải nghiệm ẩm thực Việt Nam, rất nhiều du khách nước ngoài ấn tượng với loại kẹo bình dân nhưng quá đỗi thơm ngon này.<br><br>
+<!-- chèn ảnh kẹo dừa -->
+
+<figure class="anh-mon-an">
+      <img src="https://mia.vn/media/uploads/blog-du-lich/keo-dua-ben-tre-thuc-qua-dac-san-chinh-phuc-trai-tim-hoi-me-do-ngot-01-1664923567.jpeg" width="500">
+      <figcaption>Kẹo dừa Bến Tre là thức quà đặc sản rất được các bạn gần xa ưa chuộng khi có dịp du lịch vùng sông nước miền Tây này.</figcaption>
+    </figure>
+
+<p style="color: khaki;">10. Bánh pía</p>
+Tiếp theo MIA.vn sẽ giới thiệu đến bạn món đặc sản Sóc Trăng, đó chính là bánh pía. Loại bánh này có phần vỏ mỏng, nhân bằng đậu xanh, sầu riêng hoặc trứng muối. Bánh pía Sóc Trăng có hương vị thơm ngon, ngọt bùi, là món quà biếu tặng được nhiều người ưa chuộng.<br><br>
+<!-- chèn ảnh bánh pía -->
+
+<figure class="anh-mon-an">
+      <img src="https://product.hstatic.net/200000272479/product/untitled-1_7a7dc31349d747efbd0dbbbe288f9cfd_817c2cb8aaa64b478c5c0ee1d0ba1885_master.jpg" width="500">
+      <figcaption>Bánh Pía – Một trong những đặc sản nổi tiếng có nguồn gốc từ thế kỷ XVII do người Triều Châu di cư vào miền Nam và mang theo bánh như một loại lương thực. </figcaption>
+    </figure>
+
+  </div>
+</div>
+</section>
+
+<footer>
+© 2026 Vietnam Culinary Universe™<br>
+Ẩm thực Việt Nam – Sức mạnh mềm quốc gia
+</footer>
+
+<script>
+const slider=document.getElementById("slider");
+function slide(dir){slider.scrollLeft+=dir*350;}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam Culinary Universe™</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d4af37;
+  --dark:#0b0b0b;
+  --light:#f5f5f5;
+  --red:#b11226;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--dark);
+  color:var(--light);
+  line-height:1.8;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-container{
+  max-width:1400px;
+  margin:auto;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:var(--gold);
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:32px;
+}
+nav ul li a{
+  text-decoration:none;
+  color:var(--light);
+  font-size:14px;
+  letter-spacing:1px;
+  position:relative;
+}
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  left:0; bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.3s;
+}
+nav ul li a:hover::after{width:100%}
+
+/* ===== HEADER ===== */
+header{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 60px 60px;
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  color:var(--gold);
+}
+header p{
+  max-width:900px;
+  margin:30px auto;
+  font-size:20px;
+}
+
+/* ===== COMMON ===== */
+section{padding:100px 10%}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  color:var(--gold);
+  margin-bottom:40px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+.card{
+  background:#141414;
+  border-radius:20px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+}
+.card h3{
+  color:var(--gold);
+  margin-bottom:20px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:300px;
+  margin:40px auto 0;
+  text-align:center;
+  padding:14px;
+  border-radius:6px;
+  background:#141414;
+  color:var(--gold);
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+.btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+/* ===== DNA BAR ===== */
+.dna-bar{
+  height:8px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+  margin:18px 0;
+}
+.dna-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+}
+
+/* ===== SLIDER ===== */
+.slider-container{
+  position:relative;
+  overflow:hidden;
+}
+.slider{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+.slider::-webkit-scrollbar{display:none}
+
+.slide{
+  min-width:320px;
+  background:#141414;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.4s;
+}
+.slide:hover{transform:translateY(-8px)}
+.slide img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:.4s;
+}
+.slide:hover img{transform:scale(1.1)}
+.slide p{
+  padding:15px;
+  text-align:center;
+}
+
+.nav-btn{
+  position:absolute;
+  top:40%;
+  background:rgba(0,0,0,.6);
+  color:var(--gold);
+  border:none;
+  font-size:26px;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:50%;
+}
+.nav-btn.left{left:-10px}
+.nav-btn.right{right:-10px}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:40px;
+}
+th,td{
+  padding:20px;
+  border:1px solid rgba(255,255,255,.15);
+}
+th{color:var(--gold)}
+
+/* ===== FOOTER ===== */
+footer{
+  padding:60px;
+  text-align:center;
+  background:#000;
+  opacity:.8;
+}
+.btn{
+  display:block;
+  width:300px;
+  margin:50px auto 0;
+  text-align:center;
+  padding:14px;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+.btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+.toc{
+  background:#141414;
+  padding:20px;
+  border-radius:6px;
+  margin-bottom:30px;
+}
+.toc h3{
+  margin-bottom:10px;
+}
+.toc ul{
+  padding-left:20px;
+}
+.toc a{
+  text-decoration:none;
+  color: #0066cc;
+}
+.toc a:hover{
+  text-decoration:underline;
+}
+h2{
+  margin-top:40px;
+  color:var(--gold);
+}
+h3{
+  margin-top:25px;
+  color:#444;
+}
+a{
+  color: #141414 ;
+  display: block;
+}
+.chu {
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+}
+/* ===== COMMENT CLEAN STYLE ===== */
+
+.comment-section {
+  background: #0b0b0b;
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.comment-wrapper {
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.comment-wrapper h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+#commentInput {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  margin-bottom: 15px;
+  resize: none;
+}
+
+#commentInput:focus {
+  outline: none;
+  border-color: #ef4444;
+}
+
+.comment-wrapper button {
+  background: #ef4444;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.comment-wrapper button:hover {
+  background: #dc2626;
+}
+
+.comment-container {
+  max-width: 600px;
+  padding top: 10px;
+}
+
+/* Comment Card */
+
+.comment-box {
+  padding: 20px;
+  border-radius: 12px;
+  background: #0b0b0b;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.comment-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.comment-time {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== COMMENT TEXT COLOR ===== */
+
+#commentList {
+    color: white;
+}
+
+#commentList p {
+    font-size: 16px;
+    color: White !important;
+}
+
+#commentList small {
+    display: block;
+    margin-top: 8px;
+    color: White !important;
+}
+
+/* ===== phần liên lạc ===== */
+.btn {
+  border-width: 2px;
+}
+img,
+.card-wrap,
+.card-wrapper,
+.video-wrapper,
+.mbr-figure iframe,
+.google-map iframe,
+.slide-content,
+.plan,
+.card,
+.item-wrapper,
+.item-wrapper .mbr-overlay {
+  border-radius: 2rem !important;
+}
+.video-wrapper {
+  overflow: hidden;
+}
+body {
+  font-family: Inter Tight;
+}
+.display-1 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+}
+.display-1 > .mbr-iconfont {
+  font-size: 6.25rem;
+}
+.display-2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+.display-2 > .mbr-iconfont {
+  font-size: 5rem;
+}
+.display-4 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.display-4 > .mbr-iconfont {
+  font-size: 1.75rem;
+}
+.display-5 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+.display-5 > .mbr-iconfont {
+  font-size: 2.5rem;
+}
+.display-7 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+.display-7 > .mbr-iconfont {
+  font-size: 1.75rem;
+}
+/* ---- Fluid typography for mobile devices ---- */
+/* 1.4 - font scale ratio ( bootstrap == 1.42857 ) */
+/* 100vw - current viewport width */
+/* (48 - 20)  48 == 48rem == 768px, 20 == 20rem == 320px(minimal supported viewport) */
+/* 0.65 - min scale variable, may vary */
+@media (max-width: 992px) {
+  .display-1 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 3.5rem;
+    font-size: calc( 2.4rem + (5 - 2.4) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.1 * (2.4rem + (5 - 2.4) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-2 {
+    font-size: 3.2rem;
+    font-size: calc( 2.05rem + (4 - 2.05) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.3 * (2.05rem + (4 - 2.05) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-4 {
+    font-size: 1.12rem;
+    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-5 {
+    font-size: 1.6rem;
+    font-size: calc( 1.35rem + (2 - 1.35) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.35rem + (2 - 1.35) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-7 {
+    font-size: 1.12rem;
+    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20))));
+  }
+}
+@media (min-width: 992px) and (max-width: 1400px) {
+  .display-1 {
+    font-size: 3.5rem;
+    font-size: calc( 2.4rem + (5 - 2.4) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.1 * (2.4rem + (5 - 2.4) * ((100vw - 62rem) / (87 - 62))));
+  }
+  .display-2 {
+    font-size: 3.2rem;
+    font-size: calc( 2.05rem + (4 - 2.05) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.3 * (2.05rem + (4 - 2.05) * ((100vw - 62rem) / (87 - 62))));
+  }
+  .display-4 {
+    font-size: 1.12rem;
+    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62))));
+  }
+  .display-5 {
+    font-size: 1.6rem;
+    font-size: calc( 1.35rem + (2 - 1.35) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.4 * (1.35rem + (2 - 1.35) * ((100vw - 62rem) / (87 - 62))));
+  }
+  .display-7 {
+    font-size: 1.12rem;
+    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62))));
+  }
+}
+/* Buttons */
+.btn {
+  padding: 1.25rem 2rem;
+  border-radius: 4px;
+}
+@media (max-width: 767px) {
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
+.btn-sm {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+}
+.btn-md {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+}
+.btn-lg {
+  padding: 1.25rem 2rem;
+  border-radius: 4px;
+}
+.bg-primary {
+  background-color: #9fe870 !important;
+}
+.bg-success {
+  background-color: #3a341c !important;
+}
+.bg-info {
+  background-color: #320707 !important;
+}
+.bg-warning {
+  background-color: #a0e2e1 !important;
+}
+.bg-danger {
+  background-color: #ffea64 !important;
+}
+.btn-primary,
+.btn-primary:active {
+  background-color: #9fe870 !important;
+  border-color: #9fe870 !important;
+  color: #264d0c !important;
+  box-shadow: none;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary.active {
+  color: inherit;
+  background-color: #bcef9c !important;
+  border-color: #bcef9c !important;
+  box-shadow: none;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #264d0c !important;
+  background-color: #bcef9c !important;
+  border-color: #bcef9c !important;
+}
+.btn-secondary,
+.btn-secondary:active {
+  background-color: #ffd7ef !important;
+  border-color: #ffd7ef !important;
+  color: #d70081 !important;
+  box-shadow: none;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary.active {
+  color: inherit;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: none;
+}
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  color: #d70081 !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+.btn-info,
+.btn-info:active {
+  background-color: #320707 !important;
+  border-color: #320707 !important;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info.focus,
+.btn-info.active {
+  color: inherit;
+  background-color: #5f0d0d !important;
+  border-color: #5f0d0d !important;
+  box-shadow: none;
+}
+.btn-info.disabled,
+.btn-info:disabled {
+  color: #ffffff !important;
+  background-color: #5f0d0d !important;
+  border-color: #5f0d0d !important;
+}
+.btn-success,
+.btn-success:active {
+  background-color: #3a341c !important;
+  border-color: #3a341c !important;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success.focus,
+.btn-success.active {
+  color: inherit;
+  background-color: #5c532d !important;
+  border-color: #5c532d !important;
+  box-shadow: none;
+}
+.btn-success.disabled,
+.btn-success:disabled {
+  color: #ffffff !important;
+  background-color: #5c532d !important;
+  border-color: #5c532d !important;
+}
+.btn-warning,
+.btn-warning:active {
+  background-color: #a0e2e1 !important;
+  border-color: #a0e2e1 !important;
+  color: #1f6463 !important;
+  box-shadow: none;
+}
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning.focus,
+.btn-warning.active {
+  color: inherit;
+  background-color: #c7eeed !important;
+  border-color: #c7eeed !important;
+  box-shadow: none;
+}
+.btn-warning.disabled,
+.btn-warning:disabled {
+  color: #1f6463 !important;
+  background-color: #c7eeed !important;
+  border-color: #c7eeed !important;
+}
+.btn-danger,
+.btn-danger:active {
+  background-color: #ffea64 !important;
+  border-color: #ffea64 !important;
+  color: #645600 !important;
+  box-shadow: none;
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger.focus,
+.btn-danger.active {
+  color: inherit;
+  background-color: #fff197 !important;
+  border-color: #fff197 !important;
+  box-shadow: none;
+}
+.btn-danger.disabled,
+.btn-danger:disabled {
+  color: #645600 !important;
+  background-color: #fff197 !important;
+  border-color: #fff197 !important;
+}
+.btn-white,
+.btn-white:active {
+  background-color: #eff0ec !important;
+  border-color: #eff0ec !important;
+  color: #757b62 !important;
+  box-shadow: none;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white.focus,
+.btn-white.active {
+  color: inherit;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: none;
+}
+.btn-white.disabled,
+.btn-white:disabled {
+  color: #757b62 !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+.btn-black,
+.btn-black:active {
+  background-color: #232323 !important;
+  border-color: #232323 !important;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+.btn-black:hover,
+.btn-black:focus,
+.btn-black.focus,
+.btn-black.active {
+  color: inherit;
+  background-color: #3d3d3d !important;
+  border-color: #3d3d3d !important;
+  box-shadow: none;
+}
+.btn-black.disabled,
+.btn-black:disabled {
+  color: #ffffff !important;
+  background-color: #3d3d3d !important;
+  border-color: #3d3d3d !important;
+}
+.btn-primary-outline,
+.btn-primary-outline:active {
+  background-color: transparent !important;
+  border-color: #9fe870;
+  color: #9fe870;
+}
+.btn-primary-outline:hover,
+.btn-primary-outline:focus,
+.btn-primary-outline.focus,
+.btn-primary-outline.active {
+  color: #6ddc25 !important;
+  background-color: transparent !important;
+  border-color: #6ddc25 !important;
+  box-shadow: none !important;
+}
+.btn-primary-outline.disabled,
+.btn-primary-outline:disabled {
+  color: #264d0c !important;
+  background-color: #9fe870 !important;
+  border-color: #9fe870 !important;
+}
+.btn-secondary-outline,
+.btn-secondary-outline:active {
+  background-color: transparent !important;
+  border-color: #ffd7ef;
+  color: #ffd7ef;
+}
+.btn-secondary-outline:hover,
+.btn-secondary-outline:focus,
+.btn-secondary-outline.focus,
+.btn-secondary-outline.active {
+  color: #ff80cc !important;
+  background-color: transparent !important;
+  border-color: #ff80cc !important;
+  box-shadow: none !important;
+}
+.btn-secondary-outline.disabled,
+.btn-secondary-outline:disabled {
+  color: #d70081 !important;
+  background-color: #ffd7ef !important;
+  border-color: #ffd7ef !important;
+}
+.btn-info-outline,
+.btn-info-outline:active {
+  background-color: transparent !important;
+  border-color: #320707;
+  color: #320707;
+}
+.btn-info-outline:hover,
+.btn-info-outline:focus,
+.btn-info-outline.focus,
+.btn-info-outline.active {
+  color: #000000 !important;
+  background-color: transparent !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+.btn-info-outline.disabled,
+.btn-info-outline:disabled {
+  color: #ffffff !important;
+  background-color: #320707 !important;
+  border-color: #320707 !important;
+}
+.btn-success-outline,
+.btn-success-outline:active {
+  background-color: transparent !important;
+  border-color: #3a341c;
+  color: #3a341c;
+}
+.btn-success-outline:hover,
+.btn-success-outline:focus,
+.btn-success-outline.focus,
+.btn-success-outline.active {
+  color: #000000 !important;
+  background-color: transparent !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+.btn-success-outline.disabled,
+.btn-success-outline:disabled {
+  color: #ffffff !important;
+  background-color: #3a341c !important;
+  border-color: #3a341c !important;
+}
+.btn-warning-outline,
+.btn-warning-outline:active {
+  background-color: transparent !important;
+  border-color: #a0e2e1;
+  color: #a0e2e1;
+}
+.btn-warning-outline:hover,
+.btn-warning-outline:focus,
+.btn-warning-outline.focus,
+.btn-warning-outline.active {
+  color: #5ececc !important;
+  background-color: transparent !important;
+  border-color: #5ececc !important;
+  box-shadow: none !important;
+}
+.btn-warning-outline.disabled,
+.btn-warning-outline:disabled {
+  color: #1f6463 !important;
+  background-color: #a0e2e1 !important;
+  border-color: #a0e2e1 !important;
+}
+.btn-danger-outline,
+.btn-danger-outline:active {
+  background-color: transparent !important;
+  border-color: #ffea64;
+  color: #ffea64;
+}
+.btn-danger-outline:hover,
+.btn-danger-outline:focus,
+.btn-danger-outline.focus,
+.btn-danger-outline.active {
+  color: #ffde0d !important;
+  background-color: transparent !important;
+  border-color: #ffde0d !important;
+  box-shadow: none !important;
+}
+.btn-danger-outline.disabled,
+.btn-danger-outline:disabled {
+  color: #645600 !important;
+  background-color: #ffea64 !important;
+  border-color: #ffea64 !important;
+}
+.btn-black-outline,
+.btn-black-outline:active {
+  background-color: transparent !important;
+  border-color: #232323;
+  color: #232323;
+}
+.btn-black-outline:hover,
+.btn-black-outline:focus,
+.btn-black-outline.focus,
+.btn-black-outline.active {
+  color: #000000 !important;
+  background-color: transparent !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+.btn-black-outline.disabled,
+.btn-black-outline:disabled {
+  color: #ffffff !important;
+  background-color: #232323 !important;
+  border-color: #232323 !important;
+}
+.btn-white-outline,
+.btn-white-outline:active {
+  background-color: transparent !important;
+  border-color: #fafafa;
+  color: #fafafa;
+}
+.btn-white-outline:hover,
+.btn-white-outline:focus,
+.btn-white-outline.focus,
+.btn-white-outline.active {
+  color: #cfcfcf !important;
+  background-color: transparent !important;
+  border-color: #cfcfcf !important;
+  box-shadow: none !important;
+}
+.btn-white-outline.disabled,
+.btn-white-outline:disabled {
+  color: #7a7a7a !important;
+  background-color: #fafafa !important;
+  border-color: #fafafa !important;
+}
+.text-primary {
+  color: #9fe870 !important;
+}
+.text-secondary {
+  color: #ffd7ef !important;
+}
+.text-success {
+  color: #3a341c !important;
+}
+.text-info {
+  color: #320707 !important;
+}
+.text-warning {
+  color: #a0e2e1 !important;
+}
+.text-danger {
+  color: #ffea64 !important;
+}
+.text-white {
+  color: #fafafa !important;
+}
+.text-black {
+  color: #232323 !important;
+}
+a.text-primary:hover,
+a.text-primary:focus,
+a.text-primary.active {
+  color: #66d022 !important;
+}
+a.text-secondary:hover,
+a.text-secondary:focus,
+a.text-secondary.active {
+  color: #ff71c6 !important;
+}
+a.text-success:hover,
+a.text-success:focus,
+a.text-success.active {
+  color: #000000 !important;
+}
+a.text-info:hover,
+a.text-info:focus,
+a.text-info.active {
+  color: #000000 !important;
+}
+a.text-warning:hover,
+a.text-warning:focus,
+a.text-warning.active {
+  color: #52cac8 !important;
+}
+a.text-danger:hover,
+a.text-danger:focus,
+a.text-danger.active {
+  color: #fddb00 !important;
+}
+a.text-white:hover,
+a.text-white:focus,
+a.text-white.active {
+  color: #c7c7c7 !important;
+}
+a.text-black:hover,
+a.text-black:focus,
+a.text-black.active {
+  color: #000000 !important;
+}
+a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-caption) {
+  position: relative;
+  background-image: transparent;
+  background-size: 10000px 2px;
+  background-repeat: no-repeat;
+  background-position: 0px 1.2em;
+  background-position: -10000px 1.2em;
+}
+a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-caption):hover {
+  transition: background-position 2s ease-in-out;
+  background-image: linear-gradient(currentColor 50%, currentColor 50%);
+  background-position: 0px 1.2em;
+}
+.nav-tabs .nav-link.active {
+  color: #9fe870;
+}
+.nav-tabs .nav-link:not(.active) {
+  color: #232323;
+}
+.alert-success {
+  background-color: #70c770;
+}
+.alert-info {
+  background-color: #320707;
+}
+.alert-warning {
+  background-color: #a0e2e1;
+}
+.alert-danger {
+  background-color: #ffea64;
+}
+.mbr-section-btn .btn:not(.btn-form) {
+  border-radius: 100px;
+}
+.mbr-gallery-filter li a {
+  border-radius: 100px !important;
+}
+.mbr-gallery-filter li.active .btn {
+  background-color: #9fe870;
+  border-color: #9fe870;
+  color: #306310;
+}
+.mbr-gallery-filter li.active .btn:focus {
+  box-shadow: none;
+}
+.nav-tabs .nav-link {
+  border-radius: 100px !important;
+}
+a,
+a:hover {
+  color: #9fe870;
+}
+.mbr-plan-header.bg-primary .mbr-plan-subtitle,
+.mbr-plan-header.bg-primary .mbr-plan-price-desc {
+  color: #ffffff;
+}
+.mbr-plan-header.bg-success .mbr-plan-subtitle,
+.mbr-plan-header.bg-success .mbr-plan-price-desc {
+  color: #c0b27c;
+}
+.mbr-plan-header.bg-info .mbr-plan-subtitle,
+.mbr-plan-header.bg-info .mbr-plan-price-desc {
+  color: #f3abab;
+}
+.mbr-plan-header.bg-warning .mbr-plan-subtitle,
+.mbr-plan-header.bg-warning .mbr-plan-price-desc {
+  color: #ffffff;
+}
+.mbr-plan-header.bg-danger .mbr-plan-subtitle,
+.mbr-plan-header.bg-danger .mbr-plan-price-desc {
+  color: #ffffff;
+}
+/* Scroll to top button*/
+.scrollToTop_wraper {
+  display: none;
+}
+.form-control {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-weight: 400;
+  border-radius: 40px !important;
+}
+.form-control > .mbr-iconfont {
+  font-size: 1.75rem;
+}
+.form-control:hover,
+.form-control:focus {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.07) 0px 1px 3px 0px, rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+  border-color: #9fe870 !important;
+}
+.form-control:-webkit-input-placeholder {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+.form-control:-webkit-input-placeholder > .mbr-iconfont {
+  font-size: 1.75rem;
+}
+blockquote {
+  border-color: #9fe870;
+}
+/* Forms */
+.mbr-form .input-group-btn .btn {
+  border-radius: 100px !important;
+}
+.mbr-form .input-group-btn .btn:hover {
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
+}
+.mbr-form .input-group-btn button[type="submit"] {
+  border-radius: 100px !important;
+  padding: 1rem 3rem;
+}
+.mbr-form .input-group-btn button[type="submit"]:hover {
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
+}
+.jq-selectbox li:hover,
+.jq-selectbox li.selected {
+  background-color: #9fe870;
+  color: #000000;
+}
+.jq-number__spin {
+  transition: 0.25s ease;
+}
+.jq-number__spin:hover {
+  border-color: #9fe870;
+}
+.jq-selectbox .jq-selectbox__trigger-arrow,
+.jq-number__spin.minus:after,
+.jq-number__spin.plus:after {
+  transition: 0.4s;
+  border-top-color: #232323;
+  border-bottom-color: #232323;
+}
+.jq-selectbox:hover .jq-selectbox__trigger-arrow,
+.jq-number__spin.minus:hover:after,
+.jq-number__spin.plus:hover:after {
+  border-top-color: #9fe870;
+  border-bottom-color: #9fe870;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
+  color: #000000 !important;
+  background-color: #9fe870 !important;
+  box-shadow: none !important;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td:hover,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
+  color: #000000 !important;
+  background: #ffd7ef !important;
+  box-shadow: none !important;
+}
+.lazy-bg {
+  background-image: none !important;
+}
+.lazy-placeholder:not(section),
+.lazy-none {
+  display: block;
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+  height: auto;
+}
+iframe.lazy-placeholder,
+.lazy-placeholder:after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: transparent no-repeat center;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='32' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg' stroke='%239fe870' %3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='translate(16 16)' stroke-width='2'%3e%3ccircle stroke-opacity='.5' cx='16' cy='16' r='16'/%3e%3cpath d='M32 16c0-9.94-8.06-16-16-16'%3e%3canimateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='1s' repeatCount='indefinite'/%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+}
+section.lazy-placeholder:after {
+  opacity: 0.5;
+}
+body {
+  overflow-x: hidden;
+}
+a {
+  transition: color 0.6s;
+}
+@media (max-width: 1400px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (max-width: 1400px) and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width: 1400px) and (min-width: 768px) {
+  .container-fluid {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+*:focus-visible {
+  outline: red solid 2px !important;
+  outline-offset: 2px !important;
+  transition: outline 0.2s ease-in-out;
+}
+.cid-vcrOoxoHhQ {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #edefeb;
+}
+.cid-vcrOoxoHhQ .mbr-overlay {
+  background-color: #ffffff;
+  opacity: 0.4;
+}
+.cid-vcrOoxoHhQ form .mbr-section-btn {
+  text-align: center;
+  width: 100%;
+}
+.cid-vcrOoxoHhQ form .mbr-section-btn .btn {
+  display: inline-flex;
+}
+@media (max-width: 991px) {
+  .cid-vcrOoxoHhQ form .mbr-section-btn .btn {
+    width: 100%;
+  }
+}
+.cid-vcrOoxoHhQ .content-head {
+  max-width: 800px;
+}
+
+
+</style>
+<!-- Site made with Mobirise Website Builder v6.1.12, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v6.1.12, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=ONX2Vs"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=ONX2Vs" type="text/css">
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">VCU™</div>
+    <ul>
+      <li><a href="#home">TRANG CHỦ</a></li>
+      <li><a href="#explore">KHÁM PHÁ</a></li>
+      <li><a href="#regions">3 MIỀN</a></li>
+      <li><a href="#gallery">HÌNH ẢNH</a></li>
+      <li><a href="#compare">SO SÁNH</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="home">
+  <div>
+    <h1>Vietnam Culinary Universe™</h1>
+    <p>Ba miền – một hồn ẩm thực Việt, nơi lưu giữ tinh hoa văn hoá và bản sắc dân tộc.</p>
+  </div>
+</header>
+
+<!-- KHÁM PHÁ -->
+<section id="explore">
+<h2 class="section-title">Khám phá ẩm thực Việt</h2>
+<div class="grid">
+  <div class="card" style="grid-column:1/-1">
+    Bức tranh ẩm thực Việt Nam vừa đậm đà bản sắc, vừa mang đến trải nghiệm đa chiều nên được bạn bè quốc tế đánh giá rất cao. Đặc biệt là sự kết hợp hài hòa, hương vị thơm ngon, không quá dầu mỡ, rất tốt cho sức khỏe. Bài viết sau MIA.vn sẽ giúp bạn hiểu rõ hơn về nét đẹp ẩm thực Việt Nam.
+    <div class="toc">
+      <h3>Xem nhanh</h3>
+      <ol>
+        <li><a href="#phan1">Đôi nét về văn hóa ẩm thực Việt Nam</a></li>
+        <li><a href="#phan1-1">9 nét đặc trưng của ẩm thực Việt</a></li>
+        <li><a href="#phan1-2">Nét đẹp trong văn hóa ẩm thực</a></li>
+      </ol>
+    </div>
+
+    <h2 id="phan1">Đôi nét về văn hóa ẩm thực Việt Nam</h2>
+    <p>
+      <p>Việt Nam có lãnh thổ trải dài từ Bắc vào Nam, hội tụ 54 dân tộc anh em, phong phú về địa hình, văn hóa và khí hậu. Chính sự đa dạng ấy đã tạo nên bản sắc riêng biệt cho ẩm thực từng vùng miền. Mỗi miền đều sở hữu khẩu vị và phong cách nấu nướng đặc trưng, góp phần dệt nên bức tranh ẩm thực Việt Nam vừa đậm đà bản sắc, vừa đa chiều trong trải nghiệm vị giác.</p><br>
+      <p>Ẩm thực nước ta gắn liền với việc sử dụng rau xanh tươi sống, rau luộc, rau xào, dưa muối và các món canh. Các món từ thịt hay nguyên liệu động vật thường ít hơn. Những loại thịt được ưa chuộng thường là heo, bò, gà, vịt, ngan, cùng với các loại hải sản và thủy sản như cá, tôm, cua, ốc, hến, sò, trai… góp phần bổ sung vị ngọt tự nhiên và dinh dưỡng cho món ăn.</p><br>
+      <p>Người Việt chú trọng đến hương vị ngon miệng hơn là giá trị dinh dưỡng cao cấp. Bởi vậy, trong khi ẩm thực Trung Hoa hướng đến độ bổ dưỡng, còn Nhật Bản chú ý đến yếu tố thẩm mỹ, thì ẩm thực Việt lại thiên về sự cân bằng tinh tế trong việc nêm nếm gia vị và chọn lựa nguyên liệu có độ dai, giòn hấp dẫn dù không quá nhiều dinh dưỡng như măng, nội tạng, chân gà hay cánh gà...</p><br>
+    </p>
+
+    <h3 id="phan1-1">8 nét đặc trưng của ẩm thực Việt</h3>
+    <p>
+      Có chín nét đặc trưng nổi bật của ẩm thực Việt Nam gồm:<br><br>
+
+      <p style="color: khaki;">1. Tính dung hòa và tiếp biến</p>
+      Người Việt có khả năng tiếp thu văn hóa ẩm thực từ các dân tộc khác một cách linh hoạt, rồi sáng tạo và biến tấu để phù hợp với khẩu vị bản địa. Đây chính là lý do vì sao món ăn Việt đa dạng từ Bắc vào Nam mà vẫn giữ được bản sắc riêng.
+      <br><br>
+      <p style="color: khaki;">2. Ít sử dụng chất béo</p>
+      Thực phẩm Việt chủ yếu làm từ rau củ, ít chiên rán ngập dầu như món Hoa, cũng không thiên về thịt động vật như ẩm thực phương Tây. Nhờ đó, món Việt thanh đạm và tốt cho sức khỏe hơn.<br><br>
+
+      <p style="color: khaki;">3. Hương vị đậm đà, tinh tế</p>
+      Gia vị đóng vai trò quan trọng, đặc biệt là nước mắm – linh hồn của ẩm thực Việt. Mỗi món ăn đều có loại nước chấm đi kèm riêng, góp phần tôn lên vị ngon độc đáo và đậm chất Việt.<br><br>
+
+      <p style="color: khaki;">4. Hòa quyện nhiều thành phần và hương vị</p>
+      Ẩm thực Việt là bản giao hưởng của đa dạng nguyên liệu: từ thịt, hải sản cho đến rau củ, đậu hạt và gạo. Không chỉ đa thành phần, món ăn còn là sự pha trộn tinh tế giữa các vị: chua nhẹ, cay nồng, mặn mòi, ngọt thanh, béo bùi. Tất cả tạo nên chiều sâu vị giác độc đáo và khó quên.<br><br>
+
+      <p style="color: khaki;">5. Kết hợp giữa tính ngon và lành</p>
+      Người Việt có tư duy ẩm thực rất riêng khi biết phối nguyên liệu theo quy luật âm – dương. Món có tính hàn như thịt vịt, ốc… thường được đi kèm với gia vị ấm nóng như gừng, hành, rau răm để trung hòa khí vị. Đây không chỉ là mẹo nấu ăn mà còn là tri thức y học dân gian được truyền từ đời này sang đời khác.<br><br>
+
+      <p style="color: khaki;">6. Văn hóa dùng đũa đặc sắc</p>
+      Giống với một số quốc gia châu Á, người Việt sử dụng đũa gần như trong toàn bộ món ăn từ đồ chiên, xào, kho đến cả ăn canh. Đôi đũa không chỉ là công cụ mà còn là biểu tượng của sự khéo léo và tinh tế: gắp sao cho đẹp mắt, không rơi, không vấy bẩn. Đó là cả một nghệ thuật trong cách ăn truyền thống của người Việt.<br><br>
+
+      <p style="color: khaki;">7. Tinh thần gắn kết cộng đồng</p>
+      Trong mâm cơm gia đình, bạn sẽ luôn thấy một bát nước chấm dùng chung hoặc chia ra từng phần nhỏ, thể hiện sự kết nối giữa các thành viên cùng bàn.<br><br>
+
+      <p style="color: khaki;">8. Lễ nghi hiếu khách</p>
+      Trước khi bắt đầu bữa ăn, người Việt luôn dành lời mời ăn như một cử chỉ thể hiện sự tôn trọng và thân thiện.<br>
+      Thói quen dọn mâm đồng thời<br>
+      Thay vì phục vụ theo từng món như phong cách ẩm thực phương Tây, người Việt có thói quen bày biện tất cả món ăn cùng lúc trên một mâm.
+    </p>
+
+    <h3 id="phan1-2">Nét đẹp trong văn hóa ẩm thực</h3>
+    <p>
+      Ẩm thực không chỉ là sự kết hợp giữa nguyên liệu và gia vị, mà còn là nơi phản ánh rõ nét văn hóa tinh thần của người Việt, luôn đề cao đạo lý sống và cách cư xử trong giao tiếp.<br><br>
+
+Khuôn phép trong bữa ăn
+Từ lâu, người Việt đã quan niệm việc ăn uống không chỉ để no bụng mà còn là cách thể hiện tư cách, lòng tự trọng của mỗi cá nhân. Những câu tục ngữ như "Ăn trông nồi, ngồi trông hướng", hay "Ăn phải nhai, nói phải nghĩ" là những lời dạy đời ngắn gọn nhưng sâu sắc, nhấn mạnh đến sự cẩn trọng, chừng mực và biết mình biết người trong hành vi thường nhật.<br><br>
+
+Văn hóa trong mâm cơm gia đình
+Mâm cơm gia đình là không gian sum họp thiêng liêng, nơi gắn kết các thế hệ và vun đắp tình thân. Người Việt giữ nếp "ăn chung mâm", luôn dành phần ngon cho người già, trẻ nhỏ theo tinh thần "kính trên nhường dưới". Những hành động nhỏ như gắp thức ăn cho ông bà, cha mẹ hay chờ mọi người ngồi đủ mới bắt đầu ăn đã trở thành chuẩn mực ứng xử giản dị mà đầy nhân văn trong văn hóa gia đình Việt.<br><br>
+
+Bữa ăn mang đến sự gắn kết xã hội
+Việc mời cơm khách không chỉ là hành động hiếu khách mà còn là dịp để thể hiện tấm lòng, sự trọng thị của chủ nhà. Trong những bữa tiệc, người Việt thường nấu nhiều món ngon, dọn mâm chu đáo, mời mọc nồng hậu, tránh việc dùng đũa trước khách hay để khách ăn một mình. Chủ nhà cũng thường gắp thức ăn mời khách hay có mời ăn thêm khi khách dừng bữa. Tất cả đều toát lên sự tử tế, hiếu khách và tinh thần gắn kết cộng đồng rất riêng của người Việt.<br><br>
+    </p>
+</div>
+<a href="#regions" class="btn">Bắt đầu khám phá</a>
+</section>
+
+<!-- 3 MIỀN -->
+<section id="regions">
+<h2 class="section-title">Ẩm thực 3 miền</h2>
+<div class="grid">
+  <a href="bac.html">
+  <div class="card"><h3>BẮC</h3><div class="dna-bar"><div class="dna-fill" style="width:70%"></div></div><small><p class="chu">Tinh tế – Chuẩn mực</p></small></div>
+  </a>
+  <a href="trung.html">
+  <div class="card"><h3>TRUNG</h3><div class="dna-bar"><div class="dna-fill" style="width:85%"></div></div><small><p class="chu">Đậm đà – Di sản</p></small></div>
+  </a>
+  <a href="nam.html">
+  <div class="card"><h3>NAM</h3><div class="dna-bar"><div class="dna-fill" style="width:90%"></div></div><small><p class="chu">Phóng khoáng – Sáng tạo</p></small></div>
+</a>
+</div>
+</section>
+
+<!-- SLIDER -->
+<section id="gallery">
+<h2 class="section-title">Món ăn tiêu biểu</h2>
+<div class="slider-container">
+<button class="nav-btn left" onclick="slide(-1)">❮</button>
+<div class="slider" id="slider">
+  <div class="slide"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2"><p>Phở Hà Nội</p></div>
+  <div class="slide"><img src="https://static.vinwonders.com/production/bun-bo-hue-cau-giay-1.jpg"><p>Bún bò Huế</p></div>
+  <div class="slide"><img src="https://daotaobeptruong.vn/wp-content/uploads/2020/01/banh-xeo-mien-tay.jpg"><p>Bánh xèo</p></div>
+  <div class="slide"><img src="https://mia.vn/media/uploads/blog-du-lich/banh-mi-362-1705355996.jpg"><p>Bánh mì Sài Gòn</p></div>
+</div>
+<button class="nav-btn right" onclick="slide(1)">❯</button>
+</div>
+</section>
+
+<!-- SO SÁNH -->
+<section id="compare">
+<h2 class="section-title">Sự khác biệt ẩm thực 3 miền</h2>
+<table>
+<tr><th>Tiêu chí</th><th>Bắc</th><th>Trung</th><th>Nam</th></tr>
+<tr><td>Khẩu vị</td><td>Thanh</td><td>Cay</td><td>Ngọt</td></tr>
+<tr><td>Gia vị</td><td>Ít</td><td>Nhiều</td><td>Phong phú</td></tr>
+<tr><td>Phong cách</td><td>Chuẩn mực</td><td>Cung đình</td><td>Phóng khoáng</td></tr>
+</table>
+</section>
+
+<!-- phần liên lạc -->
+<section data-bs-version="5.1" class="form5 cid-vcrOoxoHhQ" id="form02-3">
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Đóng góp ý kiến</strong></h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="6yRjnCZgr4bcPjrpFlRWunsUuNNKchmlSVX25AaZMf80hdNO7Zz+zoFNhpXhB1eHk5iSYFCNvYoukgtl1o1YnTwQ6AnyiLGGAF5TVGw8Iw5Ixwiz12ia/Z7eqHJQwagg">
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Cảm ơn bạn đã phản hồi ý kiến!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                            Oops...! some problem!
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Họ và tên" data-form-field="name" class="form-control" value="" id="name-form02-3">
+                        </div>
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email-form02-3">
+                        </div>
+                        <div class="col-12 form-group mb-3" data-for="phone">
+                            <input type="tel" name="phone" placeholder="Số điện thoại" data-form-field="phone" class="form-control" value="" id="phone-form02-3">
+                        </div>
+                        <div class="col-12 form-group mb-3" data-for="textarea">
+                            <textarea name="textarea" placeholder="Lời nhắn" data-form-field="textarea" class="form-control" id="textarea-form02-3"></textarea>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Gửi</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/4414902" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/builder/ai-website-builder.html">Free AI Website Software</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
+</body>
+</html>
